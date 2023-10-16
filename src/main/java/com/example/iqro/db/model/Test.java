@@ -15,7 +15,7 @@ import java.util.List;
 @Table(name = "tests")
 public class Test {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "test_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "test_gen")
     @SequenceGenerator(name = "test_gen", sequenceName = "test_seq", allocationSize = 1)
     private Long id;
     @Enumerated(EnumType.STRING)

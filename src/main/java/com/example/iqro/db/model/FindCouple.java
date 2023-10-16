@@ -10,8 +10,8 @@ import lombok.Setter;
 @Table(name = "find_couples")
 public class FindCouple {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "find_couple_seq")
-    @SequenceGenerator(name = "find_couple_gen", sequenceName = "find_couple_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "find_couple_gen")
+    @SequenceGenerator(name = "find_couple_gen", allocationSize = 1)
     private Long id;
     private String arabicText;
     private String pronunciationText;

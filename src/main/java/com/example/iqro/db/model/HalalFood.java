@@ -11,7 +11,7 @@ import lombok.Setter;
 public class HalalFood {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "halal_food_gen")
-    @SequenceGenerator(name = "halal_food_gen", allocationSize = 1)
+    @SequenceGenerator(name = "halal_food_gen", sequenceName = "halal_food_seq", allocationSize = 1)
     private Long id;
     private String name;
     private String location;

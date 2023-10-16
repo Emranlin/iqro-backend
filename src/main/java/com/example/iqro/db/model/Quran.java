@@ -11,7 +11,7 @@ import lombok.Setter;
 public class Quran {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "quran_gen")
-    @SequenceGenerator(name = "quran_gen", allocationSize = 1)
+    @SequenceGenerator(name = "quran_gen",sequenceName = "quran_seq", allocationSize = 1)
     private Long id;
     private String name;
     private String surah;

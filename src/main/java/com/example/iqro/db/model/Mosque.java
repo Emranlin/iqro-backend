@@ -10,7 +10,7 @@ import lombok.Setter;
 @Table(name = "mosques")
 public class Mosque {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "mosque_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "mosque_gen")
     @SequenceGenerator(name = "mosque_gen", sequenceName = "mosque_seq", allocationSize = 1)
     private Long id;
     private String name;

@@ -12,7 +12,7 @@ import java.util.List;
 @Table(name = "lessons")
 public class Lesson {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "lesson_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "lesson_gen")
     @SequenceGenerator(name = "lesson_gen", sequenceName = "lesson_seq", allocationSize = 1)
     private Long id;
     private String name;
