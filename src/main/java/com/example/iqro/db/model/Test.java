@@ -5,8 +5,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import static jakarta.persistence.CascadeType.*;
 
 
 @Getter
@@ -22,10 +23,10 @@ public class Test {
     private Type type;
     private String video;
 
-    @OneToMany(mappedBy = "test", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH})
+    @OneToMany(mappedBy = "test", cascade = {PERSIST, MERGE, REFRESH, DETACH})
     private List<Question> questions;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = ALL)
     @JoinColumn(name = "lesson_id")
     private Lesson lesson;
 }

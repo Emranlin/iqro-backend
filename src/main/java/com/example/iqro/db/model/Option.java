@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import static jakarta.persistence.CascadeType.ALL;
+
 @Getter
 @Setter
 @Entity
@@ -16,7 +18,7 @@ public class Option {
     private String option;
     private Boolean isTrue;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = ALL)
     @JoinColumn(name = "question_id")
     private Question question;
 }

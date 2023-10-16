@@ -6,6 +6,8 @@ import lombok.Setter;
 
 import java.util.List;
 
+import static jakarta.persistence.CascadeType.*;
+
 @Getter
 @Setter
 @Entity
@@ -17,6 +19,6 @@ public class Module {
     private Long id;
     private String name;
 
-    @OneToMany(mappedBy = "module", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH})
+    @OneToMany(mappedBy = "module", cascade = {PERSIST, MERGE, REFRESH, DETACH})
     private List<Lesson> lessons;
 }

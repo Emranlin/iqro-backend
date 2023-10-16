@@ -6,6 +6,8 @@ import lombok.Setter;
 
 import java.util.List;
 
+import static jakarta.persistence.CascadeType.*;
+
 @Getter
 @Setter
 @Entity
@@ -18,13 +20,13 @@ public class Lesson {
     private String name;
     private String video;
 
-    @OneToMany(mappedBy = "lesson", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH})
+    @OneToMany(mappedBy = "lesson", cascade = {PERSIST, MERGE, REFRESH, DETACH})
     private List<Test> tests;
 
-    @OneToMany(mappedBy = "lesson", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH}, orphanRemoval = true)
+    @OneToMany(mappedBy = "lesson", cascade = {PERSIST, MERGE, REFRESH, DETACH})
     private List<FindCouple> findCouples;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = ALL)
     @JoinColumn(name = "module_id")
     private Module module;
 }
