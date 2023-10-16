@@ -29,4 +29,10 @@ public class Lesson {
     @ManyToOne(cascade = ALL)
     @JoinColumn(name = "module_id")
     private Module module;
+
+    @ManyToMany(cascade = {PERSIST, MERGE, REFRESH, DETACH})
+    @JoinTable(name = "lessons_users",
+            joinColumns = @JoinColumn(name = "lesson_id"),
+            inverseJoinColumns = @JoinColumn(name = "users_id"))
+    private List<User> users;
 }

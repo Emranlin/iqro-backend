@@ -6,6 +6,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.List;
+
+import static jakarta.persistence.CascadeType.*;
 
 @Getter
 @Setter
@@ -24,4 +27,7 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Role role;
     private LocalDate registerDate;
+
+    @ManyToMany(mappedBy = "users", cascade = {PERSIST, MERGE, REFRESH, DETACH})
+    private List<Lesson> lessons;
 }
