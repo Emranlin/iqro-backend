@@ -1,7 +1,6 @@
 package com.example.iqro.db.exceptions.handler;
 
 import com.example.iqro.db.exceptions.*;
-import com.example.iqro.db.model.exceptions.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
