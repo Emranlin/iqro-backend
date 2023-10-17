@@ -1,4 +1,4 @@
-package com.example.iqro.db.model.exceptions;
+package com.example.iqro.db.exceptions;
 
 public class NotFoundException extends RuntimeException{
     public NotFoundException(){

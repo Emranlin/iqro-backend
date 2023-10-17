@@ -1,6 +1,6 @@
 package com.example.iqro.db.model;
 
-import com.example.iqro.db.model.enums.Type;
+import com.example.iqro.db.enums.Type;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

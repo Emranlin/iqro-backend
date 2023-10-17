@@ -1,4 +1,4 @@
-package com.example.iqro.db.model.enums;
+package com.example.iqro.db.enums;
 
 public enum Gender {
     MALE,
