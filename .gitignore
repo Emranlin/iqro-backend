@@ -29,7 +29,7 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 application-meerim.properties
-src/main/resources/application-golden.properties
+application-golden.properties
 application-nuriza.properties
 
 ### VS Code ###
