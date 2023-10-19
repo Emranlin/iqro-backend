@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import static jakarta.persistence.CascadeType.ALL;
+import static jakarta.persistence.CascadeType.*;
 
 @Getter
 @Setter
@@ -18,7 +18,7 @@ public class FindCouple {
     private String arabicText;
     private String pronunciationText;
 
-    @ManyToOne(cascade = ALL)
-    @JoinColumn(name = "lesson_id")
-    private Lesson lesson;
+    @ManyToOne(cascade = {PERSIST, MERGE, REFRESH, DETACH})
+    @JoinColumn(name = "question_id")
+    private Question question;
 }

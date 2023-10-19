@@ -23,13 +23,12 @@ public class UserInfo {
     private String avatar;
     private LocalDate registerDate;
 
-    @OneToOne(cascade = ALL)
-    @JoinColumn(name = "user_id")
+    @OneToOne(mappedBy = "userInfo", cascade = {PERSIST, MERGE, REFRESH, DETACH})
     private User user;
 
     @ManyToMany(cascade = {PERSIST, MERGE, REFRESH, DETACH})
     @JoinTable(name = "user_info_lessons",
             joinColumns = @JoinColumn(name = "user_info_id"),
-            inverseJoinColumns = @JoinColumn(name = "lessons_id"))
+            inverseJoinColumns = @JoinColumn(name = "lesson_id"))
     private List<Lesson> lessons;
 }

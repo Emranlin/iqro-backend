@@ -4,5 +4,6 @@ public enum Type {
     REPEAT,
     FIND_THE_WORD,
     CARDS,
-    HEAR
+    HEAR,
+    FIND_COUPLE
 }

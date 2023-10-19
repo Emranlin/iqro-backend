@@ -21,6 +21,7 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    @OneToOne(mappedBy = "user", cascade = {PERSIST, MERGE, REFRESH, DETACH}, orphanRemoval = true)
+    @OneToOne(cascade = ALL)
+    @JoinColumn(name = "user_info_id")
     private UserInfo userInfo;
 }

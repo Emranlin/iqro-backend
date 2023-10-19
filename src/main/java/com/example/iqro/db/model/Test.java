@@ -23,10 +23,10 @@ public class Test {
     private Type type;
     private String video;
 
-    @OneToMany(mappedBy = "test", cascade = {PERSIST, MERGE, REFRESH, DETACH})
+    @OneToMany(mappedBy = "test", cascade = ALL)
     private List<Question> questions;
 
-    @ManyToOne(cascade = ALL)
+    @ManyToOne(cascade = {PERSIST, MERGE, REFRESH, DETACH})
     @JoinColumn(name = "lesson_id")
     private Lesson lesson;
 }

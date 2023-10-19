@@ -6,7 +6,7 @@ import lombok.Setter;
 
 import java.util.List;
 
-import static jakarta.persistence.CascadeType.ALL;
+import static jakarta.persistence.CascadeType.*;
 
 @Getter
 @Setter
@@ -19,6 +19,7 @@ public class DuaSubCategory {
     private Long id;
     private String name;
 
-    @OneToMany(cascade = ALL)
-    private List<DuaCategory> duaCategories;
+    @ManyToOne(cascade = {PERSIST, MERGE, REFRESH, DETACH})
+    @JoinColumn(name = "dua_category_id")
+    private DuaCategory duaCategories;
 }

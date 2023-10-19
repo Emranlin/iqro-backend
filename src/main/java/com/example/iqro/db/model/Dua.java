@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import static jakarta.persistence.CascadeType.ALL;
+import static jakarta.persistence.CascadeType.*;
 
 @Getter
 @Setter
@@ -20,7 +20,7 @@ public class Dua {
     private String transcription;
     private String meaning;
 
-    @ManyToOne(cascade = ALL)
+    @ManyToOne(cascade = {PERSIST, MERGE, REFRESH, DETACH})
     @JoinColumn(name = "dua_sub_category_id")
     private DuaSubCategory duaSubCategory;
 }
