@@ -6,6 +6,7 @@ import com.example.iqro.db.dto.response.AuthenticationResponse;
 import com.example.iqro.db.model.User;
 import com.example.iqro.db.model.enums.Role;
 import com.example.iqro.db.model.exceptions.AlreadyExistException;
+import com.example.iqro.db.model.exceptions.BadCredentialException;
 import com.example.iqro.db.model.exceptions.BadRequestException;
 import config.jwt.JwtService;
 import lombok.RequiredArgsConstructor;
@@ -45,6 +46,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                 .password(passwordEncoder.encode(request.password()))
                 .confirmationCode(confirmationCode)
                 .role(Role.USER)
+                .emailConfirmed(false)
                 .build();
         userRepository.save(user);
 
@@ -65,7 +67,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     public AuthenticationResponse authenticate(AuthenticateRequest request) {
         User user = userRepository.findByEmail(request.email())
                 .orElseThrow(() -> new BadCredentialException(
-                        String.format("Пользователь с адресом электронной почты %s не существует", request.email())
+                        String.format("Пользователь с такой электронной почты %s не существует", request.email())
                 ));
 
         if (!passwordEncoder.matches(request.password(), user.getPassword())) {
@@ -74,7 +76,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
         if (!user.isEmailConfirmed()) {
             return AuthenticationResponse.builder()
-                    .message(String.format("Пользователь с адресом электронной почты %s следует подтвердить учетную запись", request.email()))
+                    .message(String.format("Пользователь с такой электронной почты %s следует подтвердить учетную запись", request.email()))
                     .build();
         }
 
@@ -87,11 +89,10 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
         String token = jwtService.generateToken(user);
 
-        Role userRole = user.getRole();
 
         return AuthenticationResponse.builder()
                 .email(user.getEmail())
-                .role(userRole)
+                .role(user.getRole())
                 .token(token)
                 .build();
     }

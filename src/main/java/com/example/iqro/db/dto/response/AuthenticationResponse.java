@@ -1,8 +1,8 @@
 package com.example.iqro.db.dto.response;
 
+import com.example.iqro.db.model.enums.Role;
 import lombok.Builder;
 
-import javax.management.relation.Role;
 @Builder
 public record AuthenticationResponse(
         String email,
