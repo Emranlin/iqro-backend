@@ -1,4 +1,4 @@
-package com.example.iqro.db.model.exceptions;
+package com.example.iqro.db.exceptions;
 
 import lombok.Builder;
 import lombok.Getter;

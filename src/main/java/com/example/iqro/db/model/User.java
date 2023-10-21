@@ -1,6 +1,6 @@
 package com.example.iqro.db.model;
 
-import com.example.iqro.db.model.enums.Role;
+import com.example.iqro.db.enums.Role;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -25,9 +25,6 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_gen")
     @SequenceGenerator(name = "user_gen", sequenceName = "user_seq", allocationSize = 1, initialValue = 7)
     private Long id;
-    private String name;
-    private String phoneNumber;
-    private String avatar;
     private String email;
     private String password;
     @Enumerated(EnumType.STRING)
@@ -72,4 +69,8 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+    @OneToOne(cascade = ALL)
+    @JoinColumn(name = "user_info_id")
+    private UserInfo userInfo;
 }

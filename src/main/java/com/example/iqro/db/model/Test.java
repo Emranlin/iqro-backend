@@ -1,6 +1,6 @@
 package com.example.iqro.db.model;
 
-import com.example.iqro.db.model.enums.Type;
+import com.example.iqro.db.enums.Type;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,10 +23,10 @@ public class Test {
     private Type type;
     private String video;
 
-    @OneToMany(mappedBy = "test", cascade = {PERSIST, MERGE, REFRESH, DETACH})
+    @OneToMany(mappedBy = "test", cascade = ALL)
     private List<Question> questions;
 
-    @ManyToOne(cascade = ALL)
+    @ManyToOne(cascade = {PERSIST, MERGE, REFRESH, DETACH})
     @JoinColumn(name = "lesson_id")
     private Lesson lesson;
 }

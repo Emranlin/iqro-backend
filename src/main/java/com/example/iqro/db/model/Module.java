@@ -19,6 +19,6 @@ public class Module {
     private Long id;
     private String name;
 
-    @OneToMany(mappedBy = "module", cascade = {PERSIST, MERGE, REFRESH, DETACH})
+    @OneToMany(mappedBy = "module", cascade = ALL)
     private List<Lesson> lessons;
 }
