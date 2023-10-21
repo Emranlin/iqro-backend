@@ -21,6 +21,9 @@ import static jakarta.persistence.CascadeType.*;
 @Table(name = "users")
 @Builder
 public class User implements UserDetails {
+
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_gen")
     @SequenceGenerator(name = "user_gen", sequenceName = "user_seq", allocationSize = 1, initialValue = 7)

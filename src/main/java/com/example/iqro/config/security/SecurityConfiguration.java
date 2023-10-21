@@ -1,6 +1,6 @@
-package config.security;
+package com.example.iqro.config.security;
 
-import config.jwt.JwtAuthenticationFilter;
+import com.example.iqro.config.jwt.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,8 +1,7 @@
 package com.example.iqro.db.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -12,6 +11,9 @@ import static jakarta.persistence.CascadeType.*;
 @Getter
 @Setter
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Table(name = "user_info")
 public class UserInfo {
     @Id

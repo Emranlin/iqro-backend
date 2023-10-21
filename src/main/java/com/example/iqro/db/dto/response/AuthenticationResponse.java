@@ -1,6 +1,7 @@
 package com.example.iqro.db.dto.response;
 
-import com.example.iqro.db.model.enums.Role;
+import com.example.iqro.db.enums.Role;
+
 import lombok.Builder;
 
 @Builder

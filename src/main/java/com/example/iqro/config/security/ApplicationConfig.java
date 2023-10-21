@@ -1,7 +1,8 @@
-package config.security;
+package com.example.iqro.config.security;
 
 
-import com.example.iqro.db.model.exceptions.NotFoundException;
+import com.example.iqro.db.exceptions.NotFoundException;
+import com.example.iqro.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,10 +16,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import repository.UserRepository;
-
 
 import java.awt.image.BufferedImage;
+
 @Configuration
 @RequiredArgsConstructor
 public class ApplicationConfig {

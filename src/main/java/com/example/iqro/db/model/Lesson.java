@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static jakarta.persistence.CascadeType.*;
@@ -26,4 +27,10 @@ public class Lesson {
     @ManyToOne(cascade = {PERSIST, MERGE, REFRESH, DETACH})
     @JoinColumn(name = "module_id")
     private Module module;
+
+    @ManyToMany
+    @JoinTable(name = "lessons_users",
+            joinColumns = @JoinColumn(name = "lesson_id"))
+    private List<User> users = new ArrayList<>();
+
 }

@@ -1,12 +1,12 @@
-package config.jwt;
+package com.example.iqro.config.jwt;
 
+import com.example.iqro.db.exceptions.NotFoundException;
 import com.example.iqro.db.model.User;
-import com.example.iqro.db.model.exceptions.NotFoundException;
+import com.example.iqro.repository.UserRepository;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
-import io.jsonwebtoken.io.IOException;
 import io.jsonwebtoken.security.Keys;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -15,13 +15,13 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
-import repository.UserRepository;
 
 import java.security.Key;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
+
 
 @Service
 @Slf4j
@@ -91,7 +91,7 @@ public class JwtService {
         log.info("Successfully authenticated user - " + login);
         return userRepository.findByEmail(login).orElseThrow(() -> {
             log.error("Пользователь не найден с токеном пожалуйста войдите или зарегистрируйтесь!");
-            return new NotFoundException("пользователь не найден с токеном пожалуйста войдите или зарегистрируйтесь");
+            return new NotFoundException("Пользователь не найден с токеном пожалуйста войдите или зарегистрируйтесь");
         });
     }
 }

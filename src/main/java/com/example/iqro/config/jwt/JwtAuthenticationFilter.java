@@ -1,4 +1,4 @@
-package config.jwt;
+package com.example.iqro.config.jwt;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
