@@ -28,7 +28,11 @@ public class UserInfo {
     private boolean emailConfirmed;
     private int confirmationCode;
     private LocalDateTime expirationTime;
-    @OneToMany(mappedBy = "userInfo", cascade = {PERSIST, MERGE, REFRESH, DETACH})
+
+    @ManyToMany(cascade = {PERSIST, MERGE, REFRESH, DETACH})
+    @JoinTable(name = "user_info_lessons",
+            joinColumns = @JoinColumn(name = "user_info_id"),
+            inverseJoinColumns = @JoinColumn(name = "lesson_id"))
     private List<Lesson> lessons;
 
     @OneToOne(mappedBy = "userInfo", cascade = {PERSIST, MERGE, REFRESH, DETACH})

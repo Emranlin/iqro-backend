@@ -42,9 +42,12 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
         int confirmationCode = generateConfirmationCode();
         UserInfo userInfo = UserInfo.builder()
+                .name(request.fullName())
                 .phoneNumber(request.phoneNumber())
+                .registerDate(LocalDate.now())
                 .confirmationCode(confirmationCode)
                 .emailConfirmed(false)
+                .expirationTime(LocalDateTime.now().plusHours(1L))
                 .registerDate(LocalDate.now())
                 .build();
 
@@ -78,12 +81,12 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         UserInfo userInfo = user.getUserInfo();
 
         if (!passwordEncoder.matches(request.password(), user.getPassword())) {
-            throw new BadRequestException("Пароль не подходит");
+            throw new BadCredentialException("Пароль не подходит");
         }
 
-        if (!userInfo.isEmailConfirmed()) {
-            throw new EmailNotConfirmedException(String.format("Подтвердите вашу электронную почту: %s", request.email()));
-        }
+//        if (!userInfo.isEmailConfirmed()) {
+//            throw new EmailNotConfirmedException(String.format("Подтвердите вашу электронную почту: %s", request.email()));
+//        }
 
 
         authenticationManager.authenticate(

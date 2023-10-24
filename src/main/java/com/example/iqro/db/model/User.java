@@ -28,6 +28,11 @@ public class User implements UserDetails {
     private String password;
     @Enumerated(EnumType.STRING)
     private Role role;
+
+    @OneToOne(cascade = ALL)
+    @JoinColumn(name = "user_info_id")
+    private UserInfo userInfo;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(role.name()));
@@ -63,7 +68,4 @@ public class User implements UserDetails {
         return true;
     }
 
-    @OneToOne(cascade = ALL)
-    @JoinColumn(name = "user_info_id")
-    private UserInfo userInfo;
 }
