@@ -7,7 +7,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.time.LocalDate;
 import java.util.Collection;
 import java.util.List;
 
@@ -21,9 +20,6 @@ import static jakarta.persistence.CascadeType.*;
 @Table(name = "users")
 @Builder
 public class User implements UserDetails {
-
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_gen")
     @SequenceGenerator(name = "user_gen", sequenceName = "user_seq", allocationSize = 1, initialValue = 7)
@@ -32,12 +28,6 @@ public class User implements UserDetails {
     private String password;
     @Enumerated(EnumType.STRING)
     private Role role;
-    private LocalDate registerDate;
-    private boolean emailConfirmed;
-    private int confirmationCode;
-    @ManyToMany(mappedBy = "users", cascade = {PERSIST, MERGE, REFRESH, DETACH})
-    private List<Lesson> lessons;
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(role.name()));

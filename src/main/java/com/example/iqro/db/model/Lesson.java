@@ -3,8 +3,6 @@ package com.example.iqro.db.model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.ArrayList;
 import java.util.List;
 
 import static jakarta.persistence.CascadeType.*;
@@ -28,9 +26,9 @@ public class Lesson {
     @JoinColumn(name = "module_id")
     private Module module;
 
-    @ManyToMany
+    @ManyToOne
     @JoinTable(name = "lessons_users",
             joinColumns = @JoinColumn(name = "lesson_id"))
-    private List<User> users = new ArrayList<>();
+    private UserInfo userInfo ;
 
 }
