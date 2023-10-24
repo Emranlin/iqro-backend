@@ -94,4 +94,13 @@ public class GlobalExceptionHandler {
                 .message(e.getMessage())
                 .build();
     }
+    @ExceptionHandler(EmailNotConfirmedException.class)
+    @ResponseStatus(value = HttpStatus.BAD_REQUEST)
+    public ExceptionResponse methodConfirmedEmail(EmailNotConfirmedException e){
+        return ExceptionResponse.builder()
+                .httpStatus(HttpStatus.BAD_REQUEST)
+                .exceptionClassName(e.getClass().getSimpleName())
+                .message(e.getMessage())
+                .build();
+    }
 }

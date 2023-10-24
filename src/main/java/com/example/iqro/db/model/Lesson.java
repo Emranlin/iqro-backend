@@ -3,7 +3,6 @@ package com.example.iqro.db.model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
 import java.util.List;
 
 import static jakarta.persistence.CascadeType.*;
@@ -26,4 +25,10 @@ public class Lesson {
     @ManyToOne(cascade = {PERSIST, MERGE, REFRESH, DETACH})
     @JoinColumn(name = "module_id")
     private Module module;
+
+    @ManyToOne
+    @JoinTable(name = "lessons_users",
+            joinColumns = @JoinColumn(name = "lesson_id"))
+    private UserInfo userInfo ;
+
 }
