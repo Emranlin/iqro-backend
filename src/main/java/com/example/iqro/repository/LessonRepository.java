@@ -10,6 +10,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface LessonRepository extends JpaRepository<Lesson, Long> {
@@ -21,7 +22,7 @@ public interface LessonRepository extends JpaRepository<Lesson, Long> {
             "WHERE l.id IN (SELECT ul.id FROM UserInfo ui " +
             "JOIN ui.lessons ul " +
             "WHERE ui.id = :userInfoId) AND l.id = :lessonId")
-    LessonResponse getByIdLesson(@Param("lessonId") Long lessonId, @Param("userInfoId") Long userInfoId);
+    Optional<LessonResponse> getByIdLesson(@Param("lessonId") Long lessonId, @Param("userInfoId") Long userInfoId);
 
     @Query("SELECT NEW com.example.iqro.db.dto.response.lesson.ExampleResponse(e.arabicText,e.audio)" +
             "FROM Example e " +

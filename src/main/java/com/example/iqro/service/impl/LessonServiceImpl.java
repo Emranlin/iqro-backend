@@ -4,13 +4,14 @@ import com.example.iqro.config.jwt.JwtService;
 import com.example.iqro.db.dto.response.lesson.ExampleResponse;
 import com.example.iqro.db.dto.response.lesson.GetAllLessonResponse;
 import com.example.iqro.db.dto.response.lesson.LessonResponse;
-import com.example.iqro.db.exceptions.NotFoundException;
+import com.example.iqro.db.exceptions.BadRequestException;
 import com.example.iqro.repository.LessonRepository;
 import com.example.iqro.service.LessonService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -26,10 +27,17 @@ public class LessonServiceImpl implements LessonService {
     @Override
     public LessonResponse getById(Long lessonId) {
         Long userInfoId = jwtService.getAuthenticate().getUserInfo().getId();
-        LessonResponse lessonResponse = lessonRepository.getByIdLesson(lessonId, userInfoId);
-        List<ExampleResponse> examples = lessonRepository.getAllExamples(lessonId);
-        lessonResponse.setExamples(examples);
-        return lessonResponse;
+        Optional<LessonResponse> optionalLessonResponse = lessonRepository.getByIdLesson(lessonId, userInfoId);
+
+        if (optionalLessonResponse.isPresent()) {
+            LessonResponse lessonResponse = optionalLessonResponse.get();
+            List<ExampleResponse> examples = lessonRepository.getAllExamples(lessonId);
+            lessonResponse.setExamples(examples);
+            return lessonResponse;
+        } else {
+            throw new BadRequestException("Доступ закрыт");
+        }
     }
-    }
+
+}
 

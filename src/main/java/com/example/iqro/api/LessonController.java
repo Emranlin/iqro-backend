@@ -14,17 +14,19 @@ import java.util.List;
 @RequestMapping("/api/lesson")
 @RequiredArgsConstructor
 @Tag(name = "Lesson API")
-@CrossOrigin(origins = "*",maxAge =3600 )
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class LessonController {
     private final LessonService lessonService;
-    @Operation(summary = "Get all lessons",description = "this method will get all lessons")
+
+    @Operation(summary = "Get all lessons", description = "this method will get all lessons")
     @GetMapping
-    public List<GetAllLessonResponse> getAllLessons(){
+    public List<GetAllLessonResponse> getAllLessons() {
         return lessonService.getAllLessons();
     }
-    @Operation(summary = "Get by id Lesson",description = "this method will get by id lesson")
+
+    @Operation(summary = "Get by id Lesson", description = "this method will get by id lesson")
     @GetMapping("/{lessonId}")
-    public LessonResponse getById(@PathVariable Long lessonId){
+    public LessonResponse getById(@PathVariable Long lessonId) {
         return lessonService.getById(lessonId);
     }
 }
