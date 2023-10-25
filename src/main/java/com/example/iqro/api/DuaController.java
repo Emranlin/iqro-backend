@@ -33,7 +33,7 @@ public class DuaController {
         return duaService.getAllTypesOfDua();
     }
 
-    @Operation(summary = "Only one dua information", description = "this method will get only one dua")
+    @Operation(summary = "Get by id dua information", description = "this method will get only one dua")
     @GetMapping("/{duaId}")
     public DuaResponse getById(@PathVariable Long duaId) {
         return duaService.getById(duaId);
