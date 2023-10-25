@@ -28,10 +28,6 @@ public class Lesson {
     @JoinColumn(name = "module_id")
     private Module module;
 
-    @ManyToOne
-    @JoinTable(name = "lessons_users",
-            joinColumns = @JoinColumn(name = "lesson_id"))
-    private UserInfo userInfo ;
     @OneToMany(mappedBy = "lesson",cascade = {PERSIST, MERGE, REFRESH, DETACH})
     private List<Example> examples;
 
