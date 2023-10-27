@@ -23,7 +23,6 @@ import java.util.Random;
 
 @Service
 @RequiredArgsConstructor
-
 public class AuthenticationServiceImpl implements AuthenticationService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
