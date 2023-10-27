@@ -1,22 +1,15 @@
 package com.example.iqro.api;
 
-import com.batoulapps.adhan.*;
-import com.batoulapps.adhan.data.DateComponents;
 import com.example.iqro.db.dto.request.AuthenticateRequest;
 import com.example.iqro.db.dto.request.UserRegisterRequest;
-import com.example.iqro.db.dto.response.AuthenticationResponse;
-import com.example.iqro.db.dto.response.RegistrationResponse;
+import com.example.iqro.db.dto.response.auth.AuthenticationResponse;
+import com.example.iqro.db.dto.response.auth.RegistrationResponse;
 import com.example.iqro.service.AuthenticationService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-
-import java.text.SimpleDateFormat;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.TimeZone;
 
 
 @RestController

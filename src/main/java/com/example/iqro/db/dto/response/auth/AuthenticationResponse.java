@@ -1,4 +1,4 @@
-package com.example.iqro.db.dto.response;
+package com.example.iqro.db.dto.response.auth;
 
 import com.example.iqro.db.enums.Role;
 import lombok.Builder;
