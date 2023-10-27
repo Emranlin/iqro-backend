@@ -28,9 +28,10 @@ target/
 build/
 !**/src/main/**/build/
 !**/src/test/**/build/
-application-meerim.properties
-application-golden.properties
-application-nuriza.properties
 
 ### VS Code ###
 .vscode/
+/src/main/resources/application-meerim.properties
+/src/main/resources/application-golden.properties
+/src/main/resources/application-nuriza.properties
+/src/main/resources/application-kurstan.properties

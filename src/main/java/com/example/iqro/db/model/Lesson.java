@@ -18,6 +18,8 @@ public class Lesson {
     private Long id;
     private String name;
     private String video;
+    private String description;
+    private String rule;
 
     @OneToMany(mappedBy = "lesson", cascade = ALL)
     private List<Test> tests;
@@ -26,9 +28,7 @@ public class Lesson {
     @JoinColumn(name = "module_id")
     private Module module;
 
-    @ManyToOne
-    @JoinTable(name = "lessons_users",
-            joinColumns = @JoinColumn(name = "lesson_id"))
-    private UserInfo userInfo ;
+    @OneToMany(mappedBy = "lesson",cascade = ALL)
+    private List<Example> examples;
 
 }
