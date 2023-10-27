@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import static jakarta.persistence.CascadeType.*;
+import static jakarta.persistence.CascadeType.DETACH;
+
 @Getter
 @Setter
 @Entity
@@ -15,7 +18,8 @@ public class Example {
     private Long id;
     private String arabicText;
     private String audio;
-    @ManyToOne()
+
+    @ManyToOne(cascade = {PERSIST, MERGE, REFRESH, DETACH})
     @JoinColumn(name = "lesson_id")
     private Lesson lesson;
 }

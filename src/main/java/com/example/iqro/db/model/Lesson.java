@@ -28,7 +28,7 @@ public class Lesson {
     @JoinColumn(name = "module_id")
     private Module module;
 
-    @OneToMany(mappedBy = "lesson",cascade = {PERSIST, MERGE, REFRESH, DETACH})
+    @OneToMany(mappedBy = "lesson",cascade = ALL)
     private List<Example> examples;
 
 }

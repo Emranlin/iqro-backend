@@ -1,12 +1,16 @@
 package com.example.iqro.service;
 
-import com.example.iqro.db.dto.response.lesson.GetAllLessonResponse;
+import com.example.iqro.db.dto.response.lesson.LessonGetAllResponse;
 import com.example.iqro.db.dto.response.lesson.LessonResponse;
+import com.example.iqro.db.dto.response.lesson.ModuleResponse;
 
 import java.util.List;
 
 public interface LessonService {
-    List<GetAllLessonResponse> getAllLessons();
+    List<ModuleResponse> getAllModules();
 
-    LessonResponse getById(Long lessonId);
+    List<LessonGetAllResponse> getLessonsOfModule(Long moduleId);
+
+    LessonResponse getLessonById(Long lessonId);
+
 }
