@@ -1,7 +1,6 @@
 package com.example.iqro.db.dto.response;
 
-public record GetAllTypeDuaResponse(
-        Long duaCategoryId,
+public record DuaSubCategoryResponse(
         Long duaSubCategoryId,
         String name
 ) {

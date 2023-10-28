@@ -1,16 +1,17 @@
 package com.example.iqro.service;
 
-import com.example.iqro.db.dto.response.DuaGetAllResponse;
+import com.example.iqro.db.dto.response.DuaCategoryResponse;
 import com.example.iqro.db.dto.response.DuaResponse;
-import com.example.iqro.db.dto.response.GetAllTypeDuaResponse;
+import com.example.iqro.db.dto.response.DuaSubCategoryResponse;
 
 import java.util.List;
 
 public interface DuaService {
-    List<DuaGetAllResponse> getAllDua();
+    List<DuaCategoryResponse> getAllDuaCategories();
 
-    List<GetAllTypeDuaResponse> getAllTypesOfDua();
-    DuaResponse getById(Long duaId);
+    List<DuaSubCategoryResponse> getAllDuaSubCategory(Long duaCategoryId);
+
+    DuaResponse getDuaById(Long duaId);
 
 
 }

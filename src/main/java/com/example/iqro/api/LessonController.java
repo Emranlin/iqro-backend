@@ -17,7 +17,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Tag(name = "Lesson API")
 @CrossOrigin(origins = "*", maxAge = 3600)
-@PreAuthorize("hasAuthority('USER')")
+@PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
 public class LessonController {
     private final LessonService lessonService;
 
