@@ -6,6 +6,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -17,6 +18,7 @@ import java.util.Map;
 @RequestMapping("/api/s3")
 @CrossOrigin(origins = "*")
 @Tag(name = "S3 API", description = "API for working with files in Amazon S3 storage")
+@PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
 public class S3Controller {
     private final S3Service s3Service;
 

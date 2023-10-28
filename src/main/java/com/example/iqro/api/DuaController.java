@@ -6,6 +6,7 @@ import com.example.iqro.db.dto.response.DuaSubCategoryResponse;
 import com.example.iqro.service.DuaService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.annotation.security.PermitAll;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +18,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Tag(name = "Dua API")
 @CrossOrigin(origins = "*", maxAge = 3600)
-@PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
+@PermitAll
 public class DuaController {
     private final DuaService duaService;
 
