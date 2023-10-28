@@ -19,6 +19,7 @@ public class Dua {
     private String arabicText;
     private String transcription;
     private String meaning;
+    private String audio;
 
     @ManyToOne(cascade = {PERSIST, MERGE, REFRESH, DETACH})
     @JoinColumn(name = "dua_sub_category_id")
