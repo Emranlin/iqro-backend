@@ -21,7 +21,6 @@ public class SurahServiceImpl implements SurahService {
 
     @Override
     public SurahResponse getSurahById(Long id) {
-        surahRepository.findById(id).orElseThrow(()->new NotFoundException("Сура с идентификатором: "+id+" не найдена!"));
-        return surahRepository.getSurahById(id);
+        return surahRepository.getSurahById(id).orElseThrow(()-> new NotFoundException("Сура с идентификатором: "+id+" не найдена!"));
     }
 }

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/surah")
+@RequestMapping("/api/surahes")
 @RequiredArgsConstructor
 @Tag(name = "Surah controller")
 @CrossOrigin(origins = "*", maxAge = 3600)

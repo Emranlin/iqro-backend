@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
+
 @Repository
 public interface SurahRepository extends JpaRepository<Surah, Long> {
     @Query("""
@@ -23,5 +25,5 @@ public interface SurahRepository extends JpaRepository<Surah, Long> {
              )
              FROM Surah s WHERE s.id =:surahId
             """)
-    SurahResponse getSurahById(Long surahId);
+    Optional<SurahResponse> getSurahById(Long surahId);
 }
