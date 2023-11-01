@@ -25,6 +25,8 @@ public class UserInfo {
     private String phoneNumber;
     private String avatar;
     private LocalDate registerDate;
+    private int totalPoint;
+    private int countOfTop3;
     private boolean emailConfirmed;
     private int confirmationCode;
     private LocalDateTime expirationTime;
@@ -38,4 +40,6 @@ public class UserInfo {
     @OneToOne(mappedBy = "userInfo", cascade = {PERSIST, MERGE, REFRESH, DETACH})
     private User user;
 
+    @OneToMany(mappedBy = "userInfo", cascade = ALL)
+    private List<Result> results;
 }
