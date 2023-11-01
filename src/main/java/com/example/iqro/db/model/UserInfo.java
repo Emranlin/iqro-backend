@@ -26,6 +26,7 @@ public class UserInfo {
     private String avatar;
     private LocalDate registerDate;
     private int totalPoint;
+    private int countOfTop3;
     private boolean emailConfirmed;
     private int confirmationCode;
     private LocalDateTime expirationTime;

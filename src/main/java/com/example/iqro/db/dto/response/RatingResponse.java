@@ -8,6 +8,6 @@ public record RatingResponse(
         String avatar,
         String name,
         Long point,
-        boolean itsMe
+        boolean isItMe
 ) {
 }
