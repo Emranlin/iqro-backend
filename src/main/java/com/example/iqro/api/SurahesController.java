@@ -18,16 +18,16 @@ import java.util.List;
 @CrossOrigin(origins = "*", maxAge = 3600)
 @PermitAll
 public class SurahesController {
-    private final SurahService service;
+    private final SurahService surahService;
     @Operation(summary = "Get all surahes", description = "This method gets all surahes.")
     @GetMapping
     public List<SurahesResponse> getAllSurahes(){
-        return service.getAllSurah();
+        return surahService.getAllSurah();
     }
 
     @Operation(summary = "Get surah by id", description = "This method gets surah by id.")
     @GetMapping("/{id}")
     public SurahResponse getSurahById(@PathVariable Long id){
-        return service.getSurahById(id);
+        return surahService.getSurahById(id);
     }
 }
