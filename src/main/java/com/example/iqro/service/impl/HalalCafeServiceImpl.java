@@ -23,6 +23,6 @@ public class HalalCafeServiceImpl implements HalalCafeService {
     public HalalCafeResponse getById(Long cafeId) {
 
         return halalCafeRepository.getByIdCafe(cafeId).orElseThrow(
-                () -> new NotFoundException(String.format(" Кафе ID - %s не найден.", cafeId)));
+                () -> new NotFoundException(String.format(" Кафе - %s не найден.", cafeId)));
     }
 }
